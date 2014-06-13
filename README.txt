@@ -29,6 +29,7 @@ The Lock Your Updates Plugins/Themes Manager is multisite compatible.
 = If You'd Like To Contribute =
 
 If you'd like to contribute to this plugin, feel free to do so on the ["Lock Your Updates" GitHub repo](https://github.com/bamadesigner/lock-your-updates).
+
 = Credits =
 
 A big shoutout to Aaron Robb [@aaron_robb](https://twitter.com/aaron_robb) who helped make this plugin grow.
