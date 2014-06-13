@@ -1,0 +1,239 @@
+# Copyright (C) 2014 Lock Your Updates Plugins/Themes Manager
+# This file is distributed under the same license as the Lock Your Updates Plugins/Themes Manager package.
+msgid ""
+msgstr ""
+"Project-Id-Version: Lock Your Updates Plugins/Themes Manager 1.0\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tag/lock-your-updates\n"
+"POT-Creation-Date: 2014-06-13 13:34:57+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2014-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+
+#: admin/class-lock-your-updates-admin.php:411
+msgid "Lock Updates"
+msgstr ""
+
+#: admin/class-lock-your-updates-admin.php:412
+msgid "Unlock Updates"
+msgstr ""
+
+#: admin/class-lock-your-updates-admin.php:413
+msgid "Notes For"
+msgstr ""
+
+#: admin/class-lock-your-updates-admin.php:414
+msgid "Update Available"
+msgstr ""
+
+#: admin/class-lock-your-updates-admin.php:415
+msgid "This %s is locked and cannot be updated."
+msgstr ""
+
+#: admin/class-lock-your-updates-admin.php:416
+msgid "This %s is unlocked and can be updated."
+msgstr ""
+
+#: admin/class-lock-your-updates-admin.php:420
+msgid "A %1$s was not provided to be locked."
+msgstr ""
+
+#: admin/class-lock-your-updates-admin.php:421
+msgid "No %1$s were selected to be locked."
+msgstr ""
+
+#: admin/class-lock-your-updates-admin.php:422
+msgid "No %1$s were selected to be unlocked."
+msgstr ""
+
+#: admin/class-lock-your-updates-admin.php:423
+msgid "A %1$s was not provided to be unlocked."
+msgstr ""
+
+#: admin/class-lock-your-updates-admin.php:426
+msgid ""
+"There seems to have been an error and I don't think your %1$s has been "
+"locked. Please try again."
+msgstr ""
+
+#: admin/class-lock-your-updates-admin.php:427
+msgid ""
+"There seems to have been an error and I don't think all or any of your %1$s "
+"have been locked. Please try again."
+msgstr ""
+
+#: admin/class-lock-your-updates-admin.php:428
+msgid ""
+"There seems to have been an error and I don't think your %1$s has been "
+"unlocked. Please try again."
+msgstr ""
+
+#: admin/class-lock-your-updates-admin.php:429
+msgid ""
+"There seems to have been an error and I don't think all or any of your %1$s "
+"have been unlocked. Please try again."
+msgstr ""
+
+#: admin/class-lock-your-updates-admin.php:432
+msgid "The %1$s has been locked."
+msgstr ""
+
+#: admin/class-lock-your-updates-admin.php:433
+msgid "The %1$s have been locked."
+msgstr ""
+
+#: admin/class-lock-your-updates-admin.php:434
+msgid "The %1$s has been unlocked."
+msgstr ""
+
+#: admin/class-lock-your-updates-admin.php:435
+msgid "The %1$s have been unlocked."
+msgstr ""
+
+#: admin/class-lock-your-updates-admin.php:439
+msgid ""
+"There seems to have been an error loading your notes for this %1$s. "
+"Refreshing the page might fix the problem. If the error persists, please "
+"post your issue in the support forum."
+msgstr ""
+
+#: admin/class-lock-your-updates-admin.php:440
+msgid ""
+"There seems to have been an error saving your notes for this %1$s. "
+"Refreshing the page might fix the problem. If the error persists, please "
+"post your issue in the support forum."
+msgstr ""
+
+#: admin/class-lock-your-updates-admin.php:474
+msgid "Lock Your Updates"
+msgstr ""
+
+#: admin/class-lock-your-updates-admin.php:482
+msgid "Where The %1$s Is Active"
+msgstr ""
+
+#: admin/class-lock-your-updates-admin.php:548
+#: admin/class-lock-your-updates-admin.php:843
+msgid ""
+"This %1$s is locked and cannot be updated. Click here to unlock this %1$s."
+msgstr ""
+
+#: admin/class-lock-your-updates-admin.php:548
+msgid "This %1$s is unlocked and can be updated. Click here to lock this %1$s."
+msgstr ""
+
+#: admin/class-lock-your-updates-admin.php:568
+msgid "Edit the notes for this %1$s"
+msgstr ""
+
+#: admin/class-lock-your-updates-admin.php:694
+msgid ""
+"This plugin is locked and cannot be updated. Click here to unlock this "
+"plugin."
+msgstr ""
+
+#: admin/class-lock-your-updates-admin.php:694
+msgid ""
+"This plugin is unlocked and can be updated. Click here to lock this plugin."
+msgstr ""
+
+#: admin/class-lock-your-updates-admin.php:697
+#: admin/class-lock-your-updates-admin.php:738
+msgid "%1$s Updates"
+msgstr ""
+
+#: admin/class-lock-your-updates-admin.php:735
+msgid ""
+"This theme is locked and cannot be updated. Click here to unlock this theme."
+msgstr ""
+
+#: admin/class-lock-your-updates-admin.php:735
+msgid ""
+"This theme is unlocked and can be updated. Click here to lock this theme."
+msgstr ""
+
+#: admin/class-lock-your-updates-admin.php:837
+msgid ""
+"There is a new version of %1$s available but this %2$s is locked from being "
+"updated."
+msgstr ""
+
+#: admin/class-lock-your-updates-admin.php:846
+msgid "Unlock this %1$s"
+msgstr ""
+
+#: admin/class-lock-your-updates-admin.php:1133
+msgid "You do not have sufficient permissions to update %1$s for this site."
+msgstr ""
+
+#: admin/class-lock-your-updates-admin.php:1133
+#: admin/class-lock-your-updates-admin.php:1137
+#: admin/class-lock-your-updates-admin.php:1453
+#: admin/class-lock-your-updates-admin.php:1474
+#: admin/class-lock-your-updates-admin.php:1481
+msgid "Return to the %1$s page"
+msgstr ""
+
+#: admin/class-lock-your-updates-admin.php:1137
+#: admin/class-lock-your-updates-admin.php:1481
+msgid ""
+"You do not have sufficient permissions to %1$s %2$s updates for this site."
+msgstr ""
+
+#: admin/class-lock-your-updates-admin.php:1453
+msgid ""
+"Uh oh. It looks like you want to %1$s a %2$s but I don't know which %2$s "
+"you'd like to %1$s."
+msgstr ""
+
+#: admin/class-lock-your-updates-admin.php:1474
+msgid ""
+"In a WordPress Multisite, %1$s can only be updated from the network admin so "
+"therefore %2$s updates can only be locked from the network admin."
+msgstr ""
+
+#: admin/class-lock-your-updates-admin.php:1714
+msgid ""
+"This theme is locked and cannot be updated. Click here to unlock this %1$s."
+msgstr ""
+
+#: admin/class-lock-your-updates-admin.php:1714
+msgid ""
+"This theme is unlocked and can be updated. Click here to lock this %1$s."
+msgstr ""
+
+#: admin/class-lock-your-updates-admin.php:1720
+msgid "%s Updates"
+msgstr ""
+
+#: admin/class-lock-your-updates-admin.php:1735
+msgid "Edit the notes for this theme"
+msgstr ""
+
+#: admin/class-lock-your-updates-admin.php:1738
+msgid "Edit Notes"
+msgstr ""
+
+#. Plugin Name of the plugin/theme
+msgid "Lock Your Updates Plugins/Themes Manager"
+msgstr ""
+
+#. Plugin URI of the plugin/theme
+msgid "http://wpdreamer.com/plugins/lock-your-updates/"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid ""
+"Allows you to lock your plugins and themes from being updated and keep notes "
+"on why they're being locked."
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "Rachel Carden"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "http://wpdreamer.com"
+msgstr ""

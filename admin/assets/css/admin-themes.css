@@ -1,0 +1,110 @@
+.theme-overlay .lock-your-updates-themes-header {
+  font-size: 1.1em;
+  line-height: normal;
+  font-weight: bold;
+  margin-top: -0.8em; }
+  .theme-overlay .lock-your-updates-themes-header.locked {
+    color: red; }
+  .theme-overlay .lock-your-updates-themes-header.unlocked {
+    color: green; }
+.theme-overlay .lock-your-updates-themes-edit-notes-area {
+  background-color: #f7fcfe;
+  padding: 15px 18px 17px 15px;
+  border: 1px solid #eee;
+  margin-top: -0.8em;
+  overflow: hidden;
+  position: relative; }
+  .theme-overlay .lock-your-updates-themes-edit-notes-area .icon {
+    display: none;
+    background-image: url("../images/locked-unlocked-update-icons.png");
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    background-size: 100px 156px;
+    position: absolute;
+    right: -13px;
+    top: 7px;
+    width: 100px;
+    height: 78px;
+    opacity: 0.2; }
+  .theme-overlay .lock-your-updates-themes-edit-notes-area.locked .icon {
+    display: block; }
+  .theme-overlay .lock-your-updates-themes-edit-notes-area.unlocked .icon {
+    display: block;
+    background-position: 0 -78px; }
+  .theme-overlay .lock-your-updates-themes-edit-notes-area h3 {
+    color: #21759B;
+    font-weight: bold;
+    margin: 0 0 0.2em 0;
+    padding: 0; }
+    .theme-overlay .lock-your-updates-themes-edit-notes-area h3 .notes-for {
+      text-transform: none;
+      color: #444;
+      font-weight: normal; }
+  .theme-overlay .lock-your-updates-themes-edit-notes-area h4 {
+    text-transform: none;
+    margin: 0.2em 0 0.6em 0;
+    padding: 0;
+    font-size: 1.1em;
+    line-height: normal; }
+    .theme-overlay .lock-your-updates-themes-edit-notes-area h4.locked {
+      color: red; }
+    .theme-overlay .lock-your-updates-themes-edit-notes-area h4.unlocked {
+      color: green; }
+  .theme-overlay .lock-your-updates-themes-edit-notes-area textarea {
+    width: 100%;
+    height: 100px;
+    margin: 0 0 8px 0;
+    padding: 6px; }
+  .theme-overlay .lock-your-updates-themes-edit-notes-area .button-primary {
+    margin: 0 9px 0 0; }
+  .theme-overlay .lock-your-updates-themes-edit-notes-area .button-secondary {
+    margin: 0; }
+  .theme-overlay .lock-your-updates-themes-edit-notes-area + .theme-update-message {
+    margin-top: 15px; }
+.theme-overlay .lock-your-updates-theme-update-message a {
+  color: red;
+  font-weight: bold; }
+  .theme-overlay .lock-your-updates-theme-update-message a:hover {
+    text-decoration: underline; }
+.theme-overlay .lock-updates-themes-actions {
+  display: inline-block; }
+  .theme-overlay .lock-updates-themes-actions .button {
+    padding-left: 29px;
+    background-position: 10px center;
+    background-repeat: no-repeat; }
+    .theme-overlay .lock-updates-themes-actions .button.action.locked, .theme-overlay .lock-updates-themes-actions .button.action.unlocked:hover {
+      background-image: url("../images/locked-icon-small.png");
+      background-color: #f4e4e4;
+      color: #ff0000;
+      border-color: #f5caca; }
+    .theme-overlay .lock-updates-themes-actions .button.action.locked:hover, .theme-overlay .lock-updates-themes-actions .button.action.unlocked {
+      background-image: url("../images/unlocked-icon-small.png");
+      background-color: #e2ebe2;
+      color: #008000;
+      border-color: #c2dcc2; }
+    .theme-overlay .lock-updates-themes-actions .button.notes.locked {
+      background-image: url("../images/locked-note-icon-small.png"); }
+      .theme-overlay .lock-updates-themes-actions .button.notes.locked.empty {
+        background-image: url("../images/locked-empty-note-icon-small.png"); }
+    .theme-overlay .lock-updates-themes-actions .button.notes.unlocked {
+      background-image: url("../images/unlocked-note-icon-small.png"); }
+      .theme-overlay .lock-updates-themes-actions .button.notes.unlocked.empty {
+        background-image: url("../images/unlocked-empty-note-icon-small.png"); }
+
+.lock-your-updates-checkmark {
+  background: url("../images/green-check-mark.svg") 0 0 no-repeat;
+  background-size: 100px 100px;
+  width: 100px;
+  height: 100px;
+  margin: -25px 0 0 0;
+  position: absolute;
+  left: 0;
+  top: 0;
+  text-align: center;
+  opacity: 0.2;
+  z-index: 1000; }
+  .lock-your-updates-checkmark img {
+    display: block;
+    margin: auto;
+    border: 0;
+    padding: 0; }

@@ -1,0 +1,290 @@
+table.plugins td.column-lock-your-updates,
+table.themes td.column-lock-your-updates {
+  width: 75px;
+  overflow: auto; }
+  table.plugins td.column-lock-your-updates .icon-wrapper,
+  table.themes td.column-lock-your-updates .icon-wrapper {
+    display: inline-block;
+    width: 30px;
+    height: 38px;
+    margin: 0;
+    overflow: hidden;
+    vertical-align: top; }
+    table.plugins td.column-lock-your-updates .icon-wrapper .icon,
+    table.themes td.column-lock-your-updates .icon-wrapper .icon {
+      display: inline-block;
+      width: 30px;
+      height: 38px;
+      overflow: hidden;
+      text-indent: -99999px;
+      margin: 0;
+      background: none;
+      background-repeat: no-repeat;
+      cursor: pointer; }
+    table.plugins td.column-lock-your-updates .icon-wrapper.action .icon,
+    table.themes td.column-lock-your-updates .icon-wrapper.action .icon {
+      background-image: url("../images/locked-unlocked-icons.png");
+      background-position: center 38px; }
+    table.plugins td.column-lock-your-updates .icon-wrapper.action.locked .icon, table.plugins td.column-lock-your-updates .icon-wrapper.action.unlocked:hover .icon,
+    table.themes td.column-lock-your-updates .icon-wrapper.action.locked .icon,
+    table.themes td.column-lock-your-updates .icon-wrapper.action.unlocked:hover .icon {
+      background-position: center 0; }
+    table.plugins td.column-lock-your-updates .icon-wrapper.action.unlocked .icon, table.plugins td.column-lock-your-updates .icon-wrapper.action.locked:hover .icon,
+    table.themes td.column-lock-your-updates .icon-wrapper.action.unlocked .icon,
+    table.themes td.column-lock-your-updates .icon-wrapper.action.locked:hover .icon {
+      background-position: center -38px; }
+    table.plugins td.column-lock-your-updates .icon-wrapper.notes,
+    table.themes td.column-lock-your-updates .icon-wrapper.notes {
+      margin-left: 5px;
+      position: relative; }
+      table.plugins td.column-lock-your-updates .icon-wrapper.notes .icon,
+      table.themes td.column-lock-your-updates .icon-wrapper.notes .icon {
+        background-image: url("../images/locked-unlocked-note-icons.png");
+        background-position: center 38px;
+        position: absolute;
+        left: 0;
+        top: 0; }
+      table.plugins td.column-lock-your-updates .icon-wrapper.notes .lines, table.plugins td.column-lock-your-updates .icon-wrapper.notes .lines:before, table.plugins td.column-lock-your-updates .icon-wrapper.notes .lines:after,
+      table.themes td.column-lock-your-updates .icon-wrapper.notes .lines,
+      table.themes td.column-lock-your-updates .icon-wrapper.notes .lines:before,
+      table.themes td.column-lock-your-updates .icon-wrapper.notes .lines:after {
+        display: block;
+        background: #000;
+        position: absolute;
+        left: 7px;
+        top: 14px;
+        margin: 0;
+        width: 16px;
+        height: 3px;
+        content: '';
+        opacity: 0.5; }
+        table.plugins td.column-lock-your-updates .icon-wrapper.notes .lines:before,
+        table.themes td.column-lock-your-updates .icon-wrapper.notes .lines:before {
+          left: 0;
+          top: 6px;
+          margin: 0;
+          opacity: 1.0; }
+        table.plugins td.column-lock-your-updates .icon-wrapper.notes .lines:after,
+        table.themes td.column-lock-your-updates .icon-wrapper.notes .lines:after {
+          left: 0;
+          top: 12px;
+          margin: 0;
+          opacity: 1.0; }
+      table.plugins td.column-lock-your-updates .icon-wrapper.notes.locked .icon,
+      table.themes td.column-lock-your-updates .icon-wrapper.notes.locked .icon {
+        background-position: center -38px; }
+      table.plugins td.column-lock-your-updates .icon-wrapper.notes.unlocked .icon,
+      table.themes td.column-lock-your-updates .icon-wrapper.notes.unlocked .icon {
+        background-position: center -114px; }
+      table.plugins td.column-lock-your-updates .icon-wrapper.notes.empty .lines, table.plugins td.column-lock-your-updates .icon-wrapper.notes.empty .lines:before, table.plugins td.column-lock-your-updates .icon-wrapper.notes.empty .lines:after,
+      table.themes td.column-lock-your-updates .icon-wrapper.notes.empty .lines,
+      table.themes td.column-lock-your-updates .icon-wrapper.notes.empty .lines:before,
+      table.themes td.column-lock-your-updates .icon-wrapper.notes.empty .lines:after {
+        display: none; }
+      table.plugins td.column-lock-your-updates .icon-wrapper.notes.empty:hover .lines, table.plugins td.column-lock-your-updates .icon-wrapper.notes.empty:hover .lines:before, table.plugins td.column-lock-your-updates .icon-wrapper.notes.empty:hover .lines:after,
+      table.themes td.column-lock-your-updates .icon-wrapper.notes.empty:hover .lines,
+      table.themes td.column-lock-your-updates .icon-wrapper.notes.empty:hover .lines:before,
+      table.themes td.column-lock-your-updates .icon-wrapper.notes.empty:hover .lines:after {
+        display: block;
+        opacity: 0.5;
+        -webkit-animation: animate-note-lines 0.3s ease-out forwards;
+        -moz-animation: animate-note-lines 0.3s ease-out forwards;
+        -o-animation: animate-note-lines 0.3s ease-out forwards;
+        animation: animate-note-lines 0.3s ease-out forwards; }
+        table.plugins td.column-lock-your-updates .icon-wrapper.notes.empty:hover .lines:before,
+        table.themes td.column-lock-your-updates .icon-wrapper.notes.empty:hover .lines:before {
+          width: 0;
+          opacity: 1.0;
+          -webkit-animation: animate-note-lines 0.3s 0.3s ease-out forwards;
+          -moz-animation: animate-note-lines 0.3s 0.3s ease-out forwards;
+          -o-animation: animate-note-lines 0.3s 0.3s ease-out forwards;
+          animation: animate-note-lines 0.3s 0.3s ease-out forwards; }
+        table.plugins td.column-lock-your-updates .icon-wrapper.notes.empty:hover .lines:after,
+        table.themes td.column-lock-your-updates .icon-wrapper.notes.empty:hover .lines:after {
+          width: 0;
+          opacity: 1.0;
+          -webkit-animation: animate-note-lines 0.3s 0.6s ease-out forwards;
+          -moz-animation: animate-note-lines 0.3s 0.6s ease-out forwards;
+          -o-animation: animate-note-lines 0.3s 0.6s ease-out forwards;
+          animation: animate-note-lines 0.3s 0.6s ease-out forwards; }
+table.plugins td.column-lock-your-updates-active-sites,
+table.themes td.column-lock-your-updates-active-sites {
+  width: 115px;
+  line-height: 1.4em; }
+  table.plugins td.column-lock-your-updates-active-sites ul,
+  table.themes td.column-lock-your-updates-active-sites ul {
+    margin: 0;
+    border: 0;
+    padding: 0; }
+    table.plugins td.column-lock-your-updates-active-sites ul li,
+    table.themes td.column-lock-your-updates-active-sites ul li {
+      margin: 5px 0 0 0;
+      padding: 5px 0 0 0;
+      border: 0;
+      border-top: 1px solid #e6e6e6; }
+      table.plugins td.column-lock-your-updates-active-sites ul li:first-child,
+      table.themes td.column-lock-your-updates-active-sites ul li:first-child {
+        border-top: 0;
+        padding-top: 0;
+        margin-top: 0; }
+  table.plugins td.column-lock-your-updates-active-sites span.description + ul,
+  table.themes td.column-lock-your-updates-active-sites span.description + ul {
+    margin-top: 4px; }
+  table.plugins td.column-lock-your-updates-active-sites span.lock-your-updates-network-active,
+  table.themes td.column-lock-your-updates-active-sites span.lock-your-updates-network-active {
+    display: block;
+    color: #555; }
+    table.plugins td.column-lock-your-updates-active-sites span.lock-your-updates-network-active span.lock-your-updates-active-sites,
+    table.themes td.column-lock-your-updates-active-sites span.lock-your-updates-network-active span.lock-your-updates-active-sites {
+      color: #777; }
+  table.plugins td.column-lock-your-updates-active-sites .lock-your-updates-network-active + ul,
+  table.themes td.column-lock-your-updates-active-sites .lock-your-updates-network-active + ul {
+    margin-top: 3px; }
+table.plugins tr.lock-your-updates-update-tr td .update-message a,
+table.themes tr.lock-your-updates-update-tr td .update-message a {
+  color: red;
+  font-weight: bold; }
+  table.plugins tr.lock-your-updates-update-tr td .update-message a:hover,
+  table.themes tr.lock-your-updates-update-tr td .update-message a:hover {
+    text-decoration: underline; }
+table.plugins tr.lock_your_updates_inline_edit_notes,
+table.themes tr.lock_your_updates_inline_edit_notes {
+  background: none; }
+  table.plugins tr.lock_your_updates_inline_edit_notes td,
+  table.themes tr.lock_your_updates_inline_edit_notes td {
+    background: none;
+    padding: 0;
+    border: 0; }
+    table.plugins tr.lock_your_updates_inline_edit_notes td.wrapper,
+    table.themes tr.lock_your_updates_inline_edit_notes td.wrapper {
+      background: none;
+      border-left: 4px solid #fff;
+      padding: 20px 20px 23px 20px;
+      -webkit-box-shadow: 0 -1px 0 rgba(0, 0, 0, 0.1) inset;
+      -moz-box-shadow: 0 -1px 0 rgba(0, 0, 0, 0.1) inset;
+      box-shadow: 0 -1px 0 rgba(0, 0, 0, 0.1) inset; }
+      table.plugins tr.lock_your_updates_inline_edit_notes td.wrapper.loading,
+      table.themes tr.lock_your_updates_inline_edit_notes td.wrapper.loading {
+        background: url("../images/loader.gif") center center no-repeat; }
+    table.plugins tr.lock_your_updates_inline_edit_notes td table,
+    table.themes tr.lock_your_updates_inline_edit_notes td table {
+      width: 100%;
+      margin: 0;
+      border: 0;
+      padding: 0; }
+      table.plugins tr.lock_your_updates_inline_edit_notes td table tr,
+      table.themes tr.lock_your_updates_inline_edit_notes td table tr {
+        background: none;
+        padding: 0; }
+    table.plugins tr.lock_your_updates_inline_edit_notes td.icon,
+    table.themes tr.lock_your_updates_inline_edit_notes td.icon {
+      width: 200px;
+      padding: 0 18px 0 0; }
+      table.plugins tr.lock_your_updates_inline_edit_notes td.icon .locked-update-icon,
+      table.plugins tr.lock_your_updates_inline_edit_notes td.icon .unlocked-update-icon,
+      table.themes tr.lock_your_updates_inline_edit_notes td.icon .locked-update-icon,
+      table.themes tr.lock_your_updates_inline_edit_notes td.icon .unlocked-update-icon {
+        width: 200px;
+        height: 156px;
+        background: none;
+        background-position: center center;
+        background-repeat: no-repeat; }
+      table.plugins tr.lock_your_updates_inline_edit_notes td.icon .locked-update-icon,
+      table.themes tr.lock_your_updates_inline_edit_notes td.icon .locked-update-icon {
+        background-image: url("../images/locked-unlocked-update-icons.png");
+        background-position: 0 0; }
+      table.plugins tr.lock_your_updates_inline_edit_notes td.icon .unlocked-update-icon,
+      table.themes tr.lock_your_updates_inline_edit_notes td.icon .unlocked-update-icon {
+        background-image: url("../images/locked-unlocked-update-icons.png");
+        background-position: 0 -156px; }
+    table.plugins tr.lock_your_updates_inline_edit_notes td h3,
+    table.themes tr.lock_your_updates_inline_edit_notes td h3 {
+      color: #222;
+      color: #21759B;
+      font-weight: bold;
+      margin: 0;
+      padding: 0; }
+      table.plugins tr.lock_your_updates_inline_edit_notes td h3 .notes-for,
+      table.themes tr.lock_your_updates_inline_edit_notes td h3 .notes-for {
+        text-transform: none;
+        color: #444;
+        font-weight: normal; }
+    table.plugins tr.lock_your_updates_inline_edit_notes td h4,
+    table.themes tr.lock_your_updates_inline_edit_notes td h4 {
+      text-transform: none;
+      margin: 0.2em 0 0.6em 0;
+      padding: 0;
+      font-size: 1.2em;
+      line-height: normal; }
+      table.plugins tr.lock_your_updates_inline_edit_notes td h4.locked,
+      table.themes tr.lock_your_updates_inline_edit_notes td h4.locked {
+        color: red; }
+      table.plugins tr.lock_your_updates_inline_edit_notes td h4.unlocked,
+      table.themes tr.lock_your_updates_inline_edit_notes td h4.unlocked {
+        color: green; }
+    table.plugins tr.lock_your_updates_inline_edit_notes td textarea,
+    table.themes tr.lock_your_updates_inline_edit_notes td textarea {
+      width: 100%;
+      height: 100px;
+      margin: 0 0 4px 0;
+      padding: 6px; }
+    table.plugins tr.lock_your_updates_inline_edit_notes td .button-primary,
+    table.themes tr.lock_your_updates_inline_edit_notes td .button-primary {
+      margin: 0 9px 0 0; }
+    table.plugins tr.lock_your_updates_inline_edit_notes td .button-secondary,
+    table.themes tr.lock_your_updates_inline_edit_notes td .button-secondary {
+      margin: 0; }
+    table.plugins tr.lock_your_updates_inline_edit_notes td.error,
+    table.themes tr.lock_your_updates_inline_edit_notes td.error {
+      padding-left: 40px;
+      padding-right: 40px; }
+      table.plugins tr.lock_your_updates_inline_edit_notes td.error .close,
+      table.themes tr.lock_your_updates_inline_edit_notes td.error .close {
+        clear: both; }
+  table.plugins tr.lock_your_updates_inline_edit_notes.active,
+  table.themes tr.lock_your_updates_inline_edit_notes.active {
+    background: #f7fcfe !important; }
+    table.plugins tr.lock_your_updates_inline_edit_notes.active td.wrapper,
+    table.themes tr.lock_your_updates_inline_edit_notes.active td.wrapper {
+      border-left: 4px solid #2ea2cc; }
+
+.lock-your-updates-checkmark {
+  background: url("../images/green-check-mark.svg") 50px center no-repeat;
+  background-size: 100px 100px;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  text-align: center;
+  opacity: 0.2; }
+  .lock-your-updates-checkmark img {
+    display: block;
+    margin: auto;
+    border: 0;
+    padding: 0; }
+
+@-webkit-keyframes animate-note-lines {
+  0% {
+    width: 0; }
+
+  100% {
+    width: 16px; } }
+@-moz-keyframes animate-note-lines {
+  0% {
+    width: 0; }
+
+  100% {
+    width: 16px; } }
+@-o-keyframes animate-note-lines {
+  0% {
+    width: 0; }
+
+  100% {
+    width: 16px; } }
+@keyframes animate-note-lines {
+  0% {
+    width: 0; }
+
+  100% {
+    width: 16px; } }
