@@ -3,6 +3,8 @@ Lock Your Updates Plugins/Themes Manager
 
 WordPress plugin that allows you to lock your plugins and themes from being updated and keep notes on why the plugin or theme is locked.
 
+You can download this plugin from the WordPress repo at [http://wordpress.org/plugins/lock-your-updates/](http://wordpress.org/plugins/lock-your-updates/).
+
 ### Description
 
 It hopefully doesn't happen alot, but sometimes you have to edit the core code of a plugin or theme. It's not ideal, and it sucks, but, whatever the reason, you had to do it. Now you're worried you're going to forget about your edit, update your plugin or theme (as you usually should), and lose your edits!
