@@ -3,8 +3,8 @@ Contributors: bamadesigner
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=bamadesigner%40gmail%2ecom&lc=US&item_name=Rachel%20Carden%20%28Lock%20Your%20Updates%29&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donateCC_LG%2egif%3aNonHosted
 Tags: update, updates, lock, unlock, theme, themes, plugin, plugins, manager, multisite, notes
 Requires at least: 3.8
-Tested up to: 3.9.1
-Stable tag: 1.0
+Tested up to: 4.1.1
+Stable tag: 1.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -67,3 +67,13 @@ If you need help activating the plugin, here are a few different methods:
 1. Lock Your Updates provides an easily visible icon on your plugins management page that displays whether or not your plugin is locked. Click the icon to lock and unlock your plugin. Click the notes icon to manage your notes for the plugin. If the plugin has notes, the notes icon will display lines. You will still be notified of updates, even if a plugin is locked.
 2. Lock Your Updates adds action buttons to your themes management page which allow you to lock and unlock your theme and manage the notes for your theme. You will still be notified of updates, even if a theme is locked.
 3. If you're running WordPress multisite, and therefore manage your plugin and theme updates from the network admin, Lock Your Updates also provides an admin column that will show you where the plugin or theme is active.
+
+== Changelog ==
+
+= 1.1 =
+* Added a preview of an item's notes on the plugins/themes list table and overlay.
+
+== Upgrade Notice ==
+
+= 1.1 =
+* Added a preview of an item's notes on the plugins/themes list table and overlay.

@@ -11,17 +11,20 @@
 		if ( ! lock_your_updates[ 'can_update_' + lock_your_updates.type ] )
 			return;
 			
-		/**
-		 * Find all the update rows and tweak actual theme/plugin row.
-		 */
-		jQuery( 'table.plugins tr.lock-your-updates-update-tr' ).each( function() {
+		// Find all the update and preview notes rows and tweak actual theme/plugin row
+		jQuery( 'table.plugins' ).find( 'tr.lock-your-updates-update-tr, tr.lock-your-updates-preview-notes-tr' ).each( function() {
 		
 			// Get file (plugin or theme) name
 			var $file = jQuery( this ).data( 'file' );
 			if ( $file !== undefined && $file !== null ) {
 				
 				// Add 'update' class to theme row
-				jQuery( 'tr#' + $file ).addClass( 'update' );
+				if ( jQuery( this ).hasClass( 'lock-your-updates-update-tr' ) )
+					jQuery( 'tr#' + $file ).addClass( 'update' ).addClass( 'lock-updates-update' );
+					
+				// Add 'preview-lock-updates-notes' class to theme row
+				if ( jQuery( this ).hasClass( 'lock-your-updates-preview-notes-tr' ) )
+					jQuery( 'tr#' + $file ).addClass( 'preview-lock-updates-notes' );
 			
 			}
 		
@@ -113,29 +116,12 @@
 			
 		}
 		
-		/**
-		 * Find the list table and activate the note icons.
-		 *
-		 * Can't include 'themes' as a class for the table because
-		 * the themes page uses 'plugins' as a class.
-		 */
-		var $wp_list_table = jQuery( 'table.wp-list-table' );
-		var $wp_list_table_body = $wp_list_table.find( 'tbody' );
-		$wp_list_table_body.children( 'tr' ).each( function() {
-		
-			// When you click any links to edit the notes.
-			jQuery( this ).find( '.lock-your-updates-edit-notes' ).on( 'click', function( $event ) {
-				$event.preventDefault();
-				
-				// Build array of edit notes arguments.
-				var $args = {};
-				var $parts = jQuery( this ).attr( 'href' ).replace( /[?&]+([^=&]+)=([^&]*)/gi, function( $m, $key, $value ) {
-					$args[ $key ] = $value;
-				});
-								
-				jQuery( this ).closest( 'tr' ).lock_your_updates_list_table_edit_note( $args );
+		// When you click any links to edit the notes
+		jQuery( '.lock-your-updates-edit-notes' ).on( 'click', function( $event ) {
+			$event.preventDefault();
 			
-			});
+			// Edit this item's row
+			jQuery( '#' + jQuery( this ).data( 'item-row' ) ).lock_your_updates_list_table_edit_note( jQuery( this ).attr( 'href' ) );
 		
 		});
 		
@@ -145,7 +131,13 @@
 		 *
 		 * The $args are provided via the "edit notes" link.
 		 */
-		jQuery.fn.lock_your_updates_list_table_edit_note = function( $args ) {
+		jQuery.fn.lock_your_updates_list_table_edit_note = function( $href_with_args ) {
+			
+			// Build array of edit notes arguments
+			var $args = {};
+			var $parts = $href_with_args.replace( /[?&]+([^=&]+)=([^&]*)/gi, function( $m, $key, $value ) {
+				$args[ $key ] = $value;
+			});
 		
 			// The action, type and nonce are required.
 			if ( ! ( 'action' in $args && ( 'lock-your-updates-edit-notes-' + lock_your_updates.type ) == $args.action
@@ -175,6 +167,9 @@
 					$update_row = jQuery( '#lock-your-updates-update-' + $item_html_id + '-row' );
 				else if ( $item_row.next().hasClass( 'plugin-update-tr' ) )
 					$update_row = $item_row.next();
+					
+				// Is there a preview notes row?
+				var $preview_notes_row = jQuery( '#lock-your-updates-' + $item_html_id + '-preview-notes-row' );
 				
 				// Create edit notes ID
 				var $edit_notes_row_id = 'lock-your-updates-edit-' + $item_html_id + '-notes';
@@ -209,20 +204,45 @@
 				
 				// Hide the original item row.
 				$item_row.hide();
+			
+				// Will be true if edit row is added
+				var $edit_notes_row_added = false;
 				
-				// If update row exists, add edit notes row after update row
+				// If preview row exists, add edit notes row after preview row
+				if ( $preview_notes_row !== undefined && $preview_notes_row.length > 0 ) {
+					
+					// Insert edit notes row
+					$edit_notes_row.hide().insertAfter( $preview_notes_row ).fadeIn();
+					
+					// We added the row
+					$edit_notes_row_added = true;
+					
+					// Hide preview row
+					$preview_notes_row.hide();
+				
+				}
+				
+				// If update row exists...
 				if ( $update_row !== undefined && $update_row.length > 0 ) {
 				
-					// Insert edit notes row
-					$edit_notes_row.hide().insertAfter( $update_row ).fadeIn();
+					// If we still need to add the row...
+					if ( ! $edit_notes_row_added ) {
+						
+						// Insert after update row
+						$edit_notes_row.hide().insertAfter( $update_row ).fadeIn();
+						
+						// We added the row
+						$edit_notes_row_added = true;
+						
+					}
 					
 					// Hide update row
 					$update_row.hide();
-					
+				
 				}
 				
-				// Insert edit notes row after the original item row.
-				else
+				// If we still need to add the row, insert after the original item row
+				if ( ! $edit_notes_row_added )
 					$edit_notes_row.hide().insertAfter( $item_row ).fadeIn();
 					
 				// Get the item/notes data	
@@ -293,10 +313,10 @@
 						// Add icon to table
 						$edit_notes_row_table.find( 'tr' ).append( $edit_notes_row_td_icon ).fadeIn();
 							
-						// create main td
+						// Create main td
 						var $edit_notes_row_td_main = jQuery( '<td class="main"></td>' );
 						
-						// add header
+						// Add header
 						$edit_notes_row_td_main.append( '<h3><span class="notes-for">' + lock_your_updates.notes_for + '</span> ' + $data.name + '</h3>' );
 						
 						if ( $data.locked )
@@ -381,6 +401,13 @@
 				if ( $item_row.attr( 'id' ) == '' )
 					return;
 					
+				// What is the item HTML ID?
+				var $item_html_id = $item_row.attr( 'id' );
+				
+				// What is the item ID?
+				var $item_id = $args[ lock_your_updates.type ];
+				
+				// AJAX to save the notes
 				jQuery.ajax({
 					url: ajaxurl,
 					type: 'POST',
@@ -390,7 +417,7 @@
 					data: {
 						action: 'lock_your_updates_save_item_notes',
 						item_type: lock_your_updates.type,
-						item_id: $args[ lock_your_updates.type ],
+						item_id: $item_id,
 						nonce: $args._wpnonce,
 						item_notes: $notes,
 					},
@@ -428,6 +455,9 @@
 							return;
 							
 						}
+						
+						// Will hold successfully saved notes
+						var $successfully_saved_notes = null;
 													
 						/**
 						 * The notes were saved and all is
@@ -435,6 +465,9 @@
 						 * and close the inline edit row.
 						 */
 						if ( 'item_notes' in $data ) {
+							
+							// Store the notes
+							$successfully_saved_notes = $data.item_notes;
 							
 							// Get the notes icon
 							var $notes_icon = $item_row.find( 'td.column-lock-your-updates' ).find( '.icon-wrapper.notes' );
@@ -445,6 +478,96 @@
 							else
 								$notes_icon.addClass( 'empty' );
 								
+						}
+						
+						// Do we have an update row?
+						var $item_update_row = jQuery( '#lock-your-updates-update-' + $item_html_id + '-row' );
+						
+						// Do we have a preview row?
+						var $item_preview_row = jQuery( '#lock-your-updates-' + $item_html_id + '-preview-notes-row' );
+						
+						// If we have no notes, then remove possible "preview notes" row
+						if ( $successfully_saved_notes === undefined || $successfully_saved_notes == '' ) {
+							
+							// Remove the "preview notes" row
+							$item_preview_row.remove();
+							
+							// Let the item row know its been removed
+							$item_row.removeClass( 'preview-lock-updates-notes' );
+							
+							// Let the update row know its been removed
+							$item_update_row.removeClass( 'lock-your-updates-item-has-notes' );
+						
+						// If we have notes, then add a "preview notes" row	
+						} else {
+							
+							// AJAX to get the "preview notes" row
+							jQuery.ajax({
+								url: ajaxurl,
+								type: 'POST',
+								dataType: 'html',
+								async: false,
+								cache: false,
+								data: {
+									action: 'lock_your_updates_get_item_preview_notes_row',
+									item_type: lock_your_updates.type,
+									item_id: $item_id,
+									item_html_id: $item_html_id,
+									wp_list_table_column_count: $item_row.children().length,
+									item_notes: $successfully_saved_notes,
+								},
+								error: function( $jqXHR, $textStatus, $errorThrown ) {},
+								success: function( $preview_notes_html, $textStatus, $jqXHR ) {
+								
+									// Only process if we have the row HTML
+									if ( ! ( $preview_notes_html !== undefined && $preview_notes_html != '' ) )
+										return;
+										
+									// Create the row
+									var $preview_notes_row = jQuery( $preview_notes_html );
+									
+									// If the "preview notes" row doesn't already exist...
+									if ( $item_preview_row.length == 0 ) {
+										
+										// Let the item row know we have a preview row
+										$item_row.addClass( 'preview-lock-updates-notes' );
+										
+										// If we have an update row, add after update row
+										if ( $item_update_row.length > 0 ) {
+											
+											// Add a class to the update row
+											$item_update_row.addClass( 'lock-your-updates-item-has-notes' );
+											
+											// Add the new "preview notes" row
+											$preview_notes_row.insertAfter( $item_update_row );
+										
+										// Otherwise, add after item row
+										} else {
+											
+											$preview_notes_row.insertAfter( $item_row );
+											
+										}
+											
+									} else {
+										
+										// Replace the row
+										$item_preview_row.replaceWith( $preview_notes_row );
+										
+									}	
+									
+									// When you click any links to edit the notes
+									jQuery( '.lock-your-updates-edit-notes' ).on( 'click', function( $event ) {
+										$event.preventDefault();
+										
+										// Edit this item's row
+										jQuery( '#' + jQuery( this ).data( 'item-row' ) ).lock_your_updates_list_table_edit_note( jQuery( this ).attr( 'href' ) );
+									
+									});									
+									 
+								},
+								complete: function( $jqXHR, $textStatus ) {}
+							});
+						
 						}
 						
 						// Close inline edit row
@@ -493,6 +616,9 @@
 			else if ( $item_row.next().hasClass( 'plugin-update-tr' ) )
 				$item_row.next().fadeIn();
 				
+			// Show the preview notes row, if exists
+			if ( jQuery( '#lock-your-updates-' + $item_html_id + '-preview-notes-row' ).length > 0 )
+				jQuery( '#lock-your-updates-' + $item_html_id + '-preview-notes-row' ).fadeIn();
 		}
 		
 		/**

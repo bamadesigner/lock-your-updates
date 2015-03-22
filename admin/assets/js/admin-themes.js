@@ -187,6 +187,13 @@
 							
 						}
 						
+						// If there's a notes preview area, add below the theme header
+						if ( $data.notes_preview_html !== undefined && $data.notes_preview_html != '' ) {
+							
+							jQuery( $data.notes_preview_html ).insertAfter( $new_theme_header );
+							
+						}
+						
 					}
 					
 				},
@@ -242,25 +249,32 @@
 							if ( $inactive_theme.find( '.lock-updates-themes-actions' ).length == 0 )
 								$lyu_themes_actions.clone().appendTo( $inactive_theme );
 							
-							jQuery( '.lock-updates-themes-actions .lock-your-updates-edit-notes' ).on( 'click', function( $event ) {
-								$event.preventDefault();
-								
-								// Build array of edit notes arguments.
-								var $args = {};
-								var $parts = jQuery( this ).attr( 'href' ).replace( /[?&]+([^=&]+)=([^&]*)/gi, function( $m, $key, $value ) {
-									$args[ $key ] = $value;
-								});
-								
-								$theme_overlay.lock_your_updates_edit_theme_note( $args );
-								
-							});
-							
 						}
 						
 					}
 				});
 				
 			}
+			
+			// Setup the edit notes actions
+			$theme_overlay.lock_your_updates_setup_edit_notes_action();
+			
+		}
+		
+		// This function is invoked by the active theme overlay.
+		jQuery.fn.lock_your_updates_setup_edit_notes_action = function() {
+			
+			// Was invoked by theme overlay
+			var $theme_overlay = jQuery( this );
+			
+			// When you click to edit a theme's notes...
+			jQuery( '.lock-your-updates-edit-notes' ).on( 'click', function( $event ) {
+				$event.preventDefault();
+				
+				// Edit the theme's notes
+				$theme_overlay.lock_your_updates_edit_theme_note( jQuery( this ).attr( 'href' ) );
+				
+			});
 			
 		}
 		
@@ -269,7 +283,13 @@
 		 *
 		 * The $args are provided via the "edit notes" link.
 		 */
-		jQuery.fn.lock_your_updates_edit_theme_note = function( $args ) {
+		jQuery.fn.lock_your_updates_edit_theme_note = function( $href_with_args ) {
+			
+			// Build array of edit notes arguments.
+			var $args = {};
+			var $parts = $href_with_args.replace( /[?&]+([^=&]+)=([^&]*)/gi, function( $m, $key, $value ) {
+				$args[ $key ] = $value;
+			});
 		
 			// If the edit area already exists, get out of here
 			if ( jQuery( '.lock-your-updates-themes-edit-notes-area' ).length > 0 )
@@ -402,10 +422,13 @@
 						// Add cancel button
 						$lyu_edit_theme_notes.append( $lyu_edit_theme_notes_cancel_button );
 						
-						// hide the original header
+						// Hide the original header
 						$theme_header.hide();
+						
+						// Hide the notes preview area
+						jQuery( '.lock-your-updates-themes-notes-preview-area' ).hide();
 	
-						// add the edit notes box
+						// Add the edit notes box
 						$lyu_edit_theme_notes.hide().insertAfter( $theme_header ).fadeIn();
 						
 					},
@@ -435,6 +458,9 @@
 			
 				// Was invoked by theme overlay
 				var $theme_overlay = jQuery( this );
+				
+				// What's the theme ID?
+				var $theme_item_id = $args[ lock_your_updates.type ];
 			
 				jQuery.ajax({
 					url: ajaxurl,
@@ -445,7 +471,7 @@
 					data: {
 						action: 'lock_your_updates_save_item_notes',
 						item_type: lock_your_updates.type,
-						item_id: $args[ lock_your_updates.type ],
+						item_id: $theme_item_id,
 						nonce: $args._wpnonce,
 						item_notes: $notes,
 					},
@@ -482,6 +508,65 @@
 							alert( lock_your_updates.errors.save_notes );
 							return;
 							
+						}
+						
+						// Will hold successfully saved notes
+						var $successfully_saved_notes = 'item_notes' in $data ? $data.item_notes : null;
+						
+						// The current theme notes preview area
+						var $current_theme_notes_preview_area = jQuery( '.lock-your-updates-themes-notes-preview-area' );
+						
+						// If we have no notes, then remove possible "preview notes" area
+						if ( $successfully_saved_notes === undefined || $successfully_saved_notes == '' ) {
+							
+							// Remove the current "preview notes" area
+							$current_theme_notes_preview_area.remove();
+						
+						// If we have notes, then add a "preview notes" row	
+						} else {
+							
+							// AJAX to get the "preview notes" area
+							jQuery.ajax({
+								url: ajaxurl,
+								type: 'POST',
+								dataType: 'html',
+								async: false,
+								cache: false,
+								data: {
+									action: 'lock_your_updates_get_themes_preview_notes_area',
+									item_id: $theme_item_id,
+									item_notes: $successfully_saved_notes,
+								},
+								error: function( $jqXHR, $textStatus, $errorThrown ) {},
+								success: function( $preview_notes_html, $textStatus, $jqXHR ) {
+									
+									// Only process if we have the row HTML
+									if ( ! ( $preview_notes_html !== undefined && $preview_notes_html != '' ) )
+										return;
+								
+									// Create the area
+									var $preview_notes_area = jQuery( $preview_notes_html );
+									
+									// If the "preview notes" area doesn't already exist...
+									if ( $current_theme_notes_preview_area.length == 0 ) {
+										
+										// Add after the theme header
+										$preview_notes_area.insertAfter( '.lock-your-updates-themes-header' );
+											
+									} else {
+										
+										// Replace the area
+										$current_theme_notes_preview_area.replaceWith( $preview_notes_area );
+										
+									}	
+									
+									// Setup the edit notes actions
+									$theme_overlay.lock_your_updates_setup_edit_notes_action();								
+									 
+								},
+								complete: function( $jqXHR, $textStatus ) {}
+							});
+						
 						}
 													
 						/**
@@ -535,6 +620,9 @@
 			
 			// Fade in the original header
 			$theme_overlay.find( '.lock-your-updates-themes-header' ).fadeIn();
+			
+			// Fade in the notes preview area
+			jQuery( '.lock-your-updates-themes-notes-preview-area' ).fadeIn();
 		
 		}
 		
