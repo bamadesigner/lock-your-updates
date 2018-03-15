@@ -1,18 +1,8 @@
 <?php
-
 /**
- * Lock Your Updates admin class
+ * Lock Your Updates admin class.
  *
- * @package   Lock_Your_Updates_Admin
- * @author    Rachel Carden <contactwpdreamer@gmail.com>
- * @license   GPL-2.0+
- * @link      http://wpdreamer.com
- * @copyright 2014 Rachel Carden
- */
-
-/**
- * @package Lock_Your_Updates_Admin
- * @author  Rachel Carden <contactwpdreamer@gmail.com>
+ * @package Lock_Your_Updates
  */
 class Lock_Your_Updates_Admin {
 

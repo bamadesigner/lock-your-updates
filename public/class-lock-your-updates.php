@@ -1,16 +1,6 @@
 <?php
-
-/**
- * @package   Lock_Your_Updates
- * @author    Rachel Carden <contactwpdreamer@gmail.com>
- * @license   GPL-2.0+
- * @link      http://wpdreamer.com
- * @copyright 2014 Rachel Carden
- */
-
 /**
  * @package Lock_Your_Updates
- * @author  Rachel Carden <contactwpdreamer@gmail.com>
  */
 class Lock_Your_Updates {
 
