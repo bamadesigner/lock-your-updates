@@ -15,25 +15,22 @@
  * @package         Lock_Your_Updates
  */
 
-// If this file is called directly, abort.
-if ( ! defined( 'WPINC' ) ) {
-	die;
-}
+/**
+ * @TODO:
+ * - Sanitize $_get, $_post, $_request.
+ */
 
-/*----------------------------------------------------------------------------*
- * Public-Facing Functionality
- *----------------------------------------------------------------------------*/
-require_once( plugin_dir_path( __FILE__ ) . 'public/class-lock-your-updates.php' );
+defined( 'WPINC' ) or die();
 
-// Will load instance of the plugin.
-add_action( 'plugins_loaded', array( 'Lock_Your_Updates', 'get_instance' ) );
-
-/*----------------------------------------------------------------------------*
- * Dashboard and Administrative Functionality
- *----------------------------------------------------------------------------*/
 if ( is_admin() ) {
-
 	require_once( plugin_dir_path( __FILE__ ) . 'admin/class-lock-your-updates-admin.php' );
 	add_action( 'plugins_loaded', array( 'Lock_Your_Updates_Admin', 'get_instance' ) );
-
 }
+
+/**
+ * Register our textdomain.
+ */
+function lock_your_updates_textdomain() {
+	load_plugin_textdomain( 'lock-your-updates', false, basename( dirname( __FILE__ ) ) . '/languages' );
+}
+add_action( 'plugins_loaded', 'lock_your_updates_textdomain' );
