@@ -17,10 +17,18 @@
 class Lock_Your_Updates_Admin {
 
 	/**
+	 * Instance of Lock_Your_Updates.
+	 *
+	 * @since 1.0
+	 * @var Lock_Your_Updates|null
+	 */
+	protected static $lock_your_updates = null;
+
+	/**
 	 * Instance of this class.
 	 *
 	 * @since 1.0
-	 * @var object
+	 * @var self|null
 	 */
 	protected static $instance = null;
 	
