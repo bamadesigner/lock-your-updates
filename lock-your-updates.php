@@ -30,7 +30,7 @@ if ( ! defined( 'WPINC' ) ) {
 /*----------------------------------------------------------------------------*
  * Public-Facing Functionality
  *----------------------------------------------------------------------------*/
-require_once( plugin_dir_path( __FILE__ ) . 'public/class-lock-your-updates.php' );
+require_once plugin_dir_path( __FILE__ ) . 'public/class-lock-your-updates.php';
 
 // Will load instance of the plugin.
 add_action( 'plugins_loaded', array( 'Lock_Your_Updates', 'get_instance' ) );
@@ -40,7 +40,7 @@ add_action( 'plugins_loaded', array( 'Lock_Your_Updates', 'get_instance' ) );
  *----------------------------------------------------------------------------*/
 if ( is_admin() ) {
 
-	require_once( plugin_dir_path( __FILE__ ) . 'admin/class-lock-your-updates-admin.php' );
+	require_once plugin_dir_path( __FILE__ ) . 'admin/class-lock-your-updates-admin.php';
 	add_action( 'plugins_loaded', array( 'Lock_Your_Updates_Admin', 'get_instance' ) );
 
 }
